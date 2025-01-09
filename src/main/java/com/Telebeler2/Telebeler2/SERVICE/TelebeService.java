@@ -1,12 +1,26 @@
 package com.Telebeler2.Telebeler2.SERVICE;
 
-import com.Telebeler2.Telebeler2.MODEL.Request.CreateTelebeRequest;
-import com.Telebeler2.Telebeler2.MODEL.Request.UpdateAgeRequest;
-import com.Telebeler2.Telebeler2.MODEL.Response.TelebeResponse;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
 
-public interface TelebeService {
-    void saveTelebe (CreateTelebeRequest telebe);
-    void updateTelebeAge (Long id, UpdateAgeRequest request);
-    void deleteTelebe (Long id);
-    TelebeResponse getTelebe (Long id);
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class TelebeService {
+
+
+    @Async
+    public void sendBirthdayEmail() {
+        log.info("Happy Birthday!");
+    }
+
+
+    @SneakyThrows
+    @Async
+    public void saveTelebe2() {
+        Thread.sleep(2000L);
+        log.info("Telebe Saved");
+    }
 }
